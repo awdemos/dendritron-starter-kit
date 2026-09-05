@@ -25,6 +25,7 @@ def test_copy_on_write_does_not_mutate_original() -> None:
     tissue.register("xor", xor, xor.certificate, immutable=True)
     original_signature = tissue.regions["xor"].signature
     fork = tissue.fork("xor", "or")
+    assert isinstance(fork.module, BooleanDendritron)
     fork.module.truth_table = (cube[:, 0] | cube[:, 1]).astype(np.int8)
     fork.module.branches = BooleanDendritron.fit(cube, fork.module.truth_table).branches
     certificate = Certificate(cube, fork.module.truth_table, name="or-table")
