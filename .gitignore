@@ -28,3 +28,8 @@ benchmarks/results/local/
 
 # built HIP shared library (compile via gpu/hip/Makefile)
 gpu/hip/libdendritron_rbf.so
+
+# desloppify local artifacts
+.desloppify/
+scorecard.png
+query.json
